@@ -1,3 +1,4 @@
+"""Link"""
 def validate_board(player_board: list):
     """
     Main function to check board
