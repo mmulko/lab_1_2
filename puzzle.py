@@ -1,6 +1,10 @@
-def validate_board(player_board):
+def validate_board(player_board: list):
     """
-    Smth
+    Main function to check board
+
+    >>> validate_board(["****1****", "*** 2****", "**  3****", "*   4****",\
+    "    56781", "        *", "2      **", "      ***", "3 4  ****"])
+    False
     """
     if board_row_check(player_board) is False:
         return False
@@ -12,9 +16,13 @@ def validate_board(player_board):
         return True
 
 
-def board_row_check(board):
+def board_row_check(board: list):
     """
-    Smth
+    This function checks all rows for repeated numbers
+
+    >>> board_row_check(["****1****", "*** 2****", "**  3****", "*   4****",\
+    "    56781", "        *", "2      **", "      ***", "3 4  ****"])
+    True
     """
     for num in range(len(board)):
         row = board[num]
@@ -24,9 +32,12 @@ def board_row_check(board):
     return True
 
 
-def row_to_column_list(row_board):
+def row_to_column_list(row_board: list):
     """
-    Smth
+    This function makes column list out of row list
+
+    >>> row_to_column_list(["123", "***", "321",])
+    [['1', '*', '3'], ['2', '*', '2'], ['3', '*', '1']]
     """
     f_list = []
     for num_2 in range(len(row_board)):
@@ -39,9 +50,13 @@ def row_to_column_list(row_board):
     return f_list
 
 
-def row_check(r_list):
+def row_check(r_list: list):
     """
-    Smth
+    This function checks row for repeated numbers in row
+
+    >>> row_check(['*', '*', '*', '*', ' ', ' ', '2', ' ', '3', '3', ' ', '4',\
+     ' ', ' ', '*', '*', '*', '*'])
+    False
     """
     num_list = []
     for num_2 in range(len(r_list)):
@@ -54,9 +69,13 @@ def row_check(r_list):
                     return False
 
 
-def check_colors(a_board):
+def check_colors(a_board: list):
     """
-    Smth
+    This function checks weather there are different numbers in colored tiles
+
+    >>> check_colors(["****1****", "*** 2****", "**  3****", "*   4****",\
+    "    56781", "        *", "2      **", "      ***", "3 4  ****"])
+    False
     """
     for num in range(len(a_board)):
         c_list = row_to_column_list(a_board)[num]
@@ -67,16 +86,3 @@ def check_colors(a_board):
             return False
         else:
             return True
-
-
-print(validate_board([
-    "****1****",
-    "*** 2****",
-    "**  3****",
-    "*   4****",
-    "    56781",
-    "        *",
-    "2      **",
-    "      ***",
-    "3 4  ****"
-    ]))
